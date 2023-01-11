@@ -1,0 +1,31 @@
+import numpy as np
+import pandas as pd 
+
+
+data=np.random.randn(4,3)
+print(data)
+dataFrame=pd.DataFrame(data)
+print(dataFrame)
+print("\n")
+print(dataFrame[1])
+dataFrame2=pd.DataFrame(data,index=["Bora","Yasin","İrem","Rabia"],columns=["Maaş","Yaş","Çalışma Saati"])
+print(dataFrame2)
+print("\n")
+print(dataFrame2["Maaş"])
+print("\n")
+print(dataFrame2.loc["Yasin"])
+print("\n")
+print(dataFrame2.iloc[1])
+dataFrame2["Emeklilik Yaşı"] = dataFrame2["Yaş"] + dataFrame2["Maaş"]
+print(dataFrame2)
+print(dataFrame2.drop("Emeklilik Yaşı",axis=1))
+print("\n")
+print(dataFrame2.drop("Rabia",axis=0))
+dataFrame2.drop("Emeklilik Yaşı",axis=1,inplace=True)
+print("\n")
+print(dataFrame2)
+print("\n")
+print(dataFrame2.loc["Bora","Maaş"])
+print(dataFrame2[dataFrame2["Yaş"]>0])
+dataFrame3=dataFrame2.reset_index()
+print(dataFrame3)
